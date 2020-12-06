@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "SF UI Display";
+  src: local("SF UI Display"),
+    url("../assets/fonts/SFUIDisplay-Regular.woff") format("woff");
+}
+
+.container {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 70px 40px;
+}

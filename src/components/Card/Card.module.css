@@ -1,0 +1,174 @@
+body {
+  background-color: #e5e5e5;
+}
+.container {
+  width: 25%;
+  min-width: 250px;
+  max-width: 570px;
+  display: flex;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 25px;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  background-color: #ffffff;
+}
+.newLogo {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 60px;
+  height: 20px;
+  background: linear-gradient(rgba(239, 187, 55, 1), rgba(207, 158, 31, 1));
+  font-family: SF UI Display;
+  font-size: 16px;
+  border-radius: 30px;
+  text-align: center;
+  line-height: 20px;
+}
+.compareContainer {
+  position: absolute;
+}
+.imageWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  max-height: 200px;
+}
+.imageWrapper > img {
+  height: 100%;
+}
+
+.dropdown {
+  width: 30%;
+  height: 30px;
+  text-align-last: left;
+  font-size: 14px;
+  padding-left: 15px;
+  border: none;
+  border-radius: 30px;
+  position: relative;
+  background-color: #fff;
+}
+.innerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price {
+  font-size: 16px;
+  text-align: right;
+}
+.volumeCheckbox {
+  margin-top: 16px;
+  display: flex;
+  width: 100px;
+  height: 100px;
+  flex-direction: column;
+}
+.volumeCheckbox input[type="radio"] {
+  display: none;
+}
+.volumeCheckbox input[type="radio"] {
+}
+.volumeCheckbox label {
+  position: relative;
+  text-align: left;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: SF UI Display;
+  margin-left: 40px;
+  margin-top: 5px;
+}
+.volumeCheckbox label::before {
+  content: " ";
+  position: absolute;
+  top: 0px;
+  left: -30px;
+  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: #dedede;
+}
+.volumeCheckbox label:checked::after {
+  content: " ";
+  position: absolute;
+  top: 0px;
+  left: -30px;
+  border-radius: 5px;
+  width: 17px;
+  height: 17px;
+  background-color: red;
+}
+.quantityWrapper {
+  height: 27px;
+  width: 65px;
+  display: flex;
+
+  justify-content: space-between;
+  padding: 0px 10px;
+  align-items: center;
+  background-color: #e5e5e5;
+  border-radius: 27px;
+}
+.quantityWrapper button {
+  border: none;
+  background-color: inherit;
+  outline: none;
+  font-size: 16px;
+}
+.quantityWrapper button:hover {
+  cursor: pointer;
+}
+.buyButton {
+  width: 30%;
+  transition: 300ms;
+  height: 27px;
+  border-radius: 27px;
+  position: relative;
+  border: none;
+  outline: none;
+  background: linear-gradient(261.65deg, #efbb37 -3.95%, #cf9e1f 109.44%);
+  min-width: 150px;
+  color: #ffffff;
+}
+.buyButton span {
+  font-size: 16px;
+  font-family: SF UI Display;
+  z-index: 3;
+  opacity: 1;
+  position: relative;
+  line-height: 27px;
+}
+.buyButton:hover {
+  box-shadow: 0px 0px 20px 0px rgba(232, 203, 128, 1);
+  transition: 300ms;
+  cursor: pointer;
+}
+
+.buyButton::before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 27px;
+  opacity: 0;
+  transition: 300ms;
+  background: linear-gradient(261.65deg, #e9b32c -3.95%, #bf911a 109.44%);
+}
+.buyButton:hover::before {
+  opacity: 1;
+  transition: 300ms;
+}
+.buyButton:active {
+  box-shadow: 0px 0px 20px 0px rgba(232, 203, 128, 1);
+  transition: 300ms;
+}
+.buyButton:active::before {
+  transition: 1000ms;
+  background: linear-gradient(261.65deg, #ffd773 -3.95%, #e2b645 109.44%);
+}
