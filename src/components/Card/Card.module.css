@@ -1,12 +1,12 @@
 body {
   background-color: #e5e5e5;
 }
-.container {
+.wrapper {
   width: 25%;
   min-width: 250px;
   max-width: 570px;
   display: flex;
-  border: 1px solid black;
+  transition: 500ms;
   border-radius: 25px;
   padding: 25px;
   flex-direction: column;
@@ -14,6 +14,16 @@ body {
   justify-content: center;
   background-color: #ffffff;
 }
+.wrapper:hover {
+  filter: drop-shadow(0px 4px 45px #c3d4e4);
+  transition: 500ms;
+  transform: translate(-1px, -4px);
+}
+.wrapper:hover .imageWrapper > img {
+  transition: 500ms;
+  transform: rotateZ(-15deg) scale(1.3);
+}
+
 .newLogo {
   position: absolute;
   top: 30px;
@@ -25,6 +35,7 @@ body {
   font-size: 16px;
   border-radius: 30px;
   text-align: center;
+  z-index: 10;
   line-height: 20px;
 }
 .compareContainer {
@@ -33,11 +44,15 @@ body {
 .imageWrapper {
   width: 100%;
   display: flex;
+  overflow: hidden;
   justify-content: center;
   max-height: 200px;
+  filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.05));
+  border-radius: 25px;
 }
 .imageWrapper > img {
   height: 100%;
+  transition: 500ms;
 }
 
 .dropdown {
@@ -63,24 +78,27 @@ body {
 .volumeCheckbox {
   margin-top: 16px;
   display: flex;
-  width: 100px;
   height: 100px;
   flex-direction: column;
 }
-.volumeCheckbox input[type="radio"] {
-  display: none;
+.volumeInput {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
 }
-.volumeCheckbox input[type="radio"] {
-}
+
 .volumeCheckbox label {
   position: relative;
   text-align: left;
   line-height: 20px;
   font-size: 16px;
+  max-width: 30%;
   font-weight: 500;
   font-family: SF UI Display;
   margin-left: 40px;
+  user-select: none;
   margin-top: 5px;
+  cursor: pointer;
 }
 .volumeCheckbox label::before {
   content: " ";
@@ -92,15 +110,14 @@ body {
   height: 20px;
   background-color: #dedede;
 }
-.volumeCheckbox label:checked::after {
-  content: " ";
-  position: absolute;
-  top: 0px;
-  left: -30px;
-  border-radius: 5px;
-  width: 17px;
-  height: 17px;
-  background-color: red;
+.volumeCheckbox label:hover::before {
+  background-color: #c4c4c4;
+}
+.volumeInput:checked + label::before {
+  border: 3px solid #dedede;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background: linear-gradient(261.65deg, #efbb37 -3.95%, #cf9e1f 109.44%);
 }
 .quantityWrapper {
   height: 27px;

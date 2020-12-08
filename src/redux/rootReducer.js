@@ -4,7 +4,7 @@ import cartReducer from "./cart/cartReducer";
 
 const rootReducer = combineReducers({
         cart: cartReducer
-//   timer: timerReducer
+
 });
 
 export default rootReducer;

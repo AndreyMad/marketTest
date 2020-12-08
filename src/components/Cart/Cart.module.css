@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  position: relative;
+}
+.wrapper {
+  width: 100%;
+  min-height: 70px;
+  background-color: #fff;
+}
+.image {
+  height: 50px;
+}
+.innerWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.deleteButton {
+  background-color: inherit;
+  border: none;
+  outline: none;
+}

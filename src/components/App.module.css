@@ -3,11 +3,17 @@
   src: local("SF UI Display"),
     url("../assets/fonts/SFUIDisplay-Regular.woff") format("woff");
 }
-
+body {
+  background-color: #e5e5e5;
+}
 .container {
-  max-width: 100%;
+  width: 100%;
+}
+.wrapper {
+  width: 90%;
+  /* padding: 70px 40px; */
+  margin: 40px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 70px 40px;
 }
