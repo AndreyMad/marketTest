@@ -71,6 +71,7 @@ class App extends Component {
             this.costHandler(id);
           }
         );
+        default: return null
     }
   };
 
@@ -117,7 +118,7 @@ class App extends Component {
       });
       return;
     }
-    prodToCart = { ...prodToCart, shId: shortId.generate() };
+    prodToCart = { ...prodToCart, shId: shortId.generate(), price: prodToCart.cost/prodToCart.selectedQuantity };
     console.log(prodToCart);
     addProductToCart(prodToCart);
     toast.success("Товар добавлен в корзину", {

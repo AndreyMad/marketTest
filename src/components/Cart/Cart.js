@@ -9,21 +9,25 @@ class Cart extends Component {
     const { cartProducts } = this.props;
     console.log(cartProducts);
   }
-  deleteProduct =(id)=>{
-    const {deleteProductFromCart}=this.props
+  deleteProduct = (id) => {
+    const { deleteProductFromCart } = this.props
     deleteProductFromCart(id)
   }
-quantityChangeHandler=(id, action)=>{
-  const {incrementQuantity}=this.props
-  switch (action){
-    case 'increment':
-      console.log('increment');
-      return incrementQuantity(id)
-  }
-}
-quantityChange=()=>{
+  quantityChangeHandler = (id, action) => {
+    const { incrementQuantity, decrementQuantity 
+    } = this.props
+    switch (action) {
+      case 'increment':
+        return incrementQuantity(id)
+      case 'decrement':
+        return decrementQuantity(id)
+        default: return null
+    };
 
-}
+  }
+  quantityChange = () => {
+
+  }
   render() {
     const { cartProducts } = this.props;
     return (
@@ -39,12 +43,12 @@ quantityChange=()=>{
                 <span>{el.selectedColor}</span>
                 <span>{el.selectedVolume}</span>
                 <div className={style.quantityWrapper}>
-                  <button  onClick={()=>this.quantityChangeHandler(el.shId,'decrement')} value="decrement">-</button>
+                  <button onClick={() => this.quantityChangeHandler(el.shId, 'decrement')} value="decrement">-</button>
                   <span>{el.selectedQuantity}</span>
-                  <button onClick={()=>{this.quantityChangeHandler(el.shId, 'increment')}} value="increment">+</button>
+                  <button onClick={() => { this.quantityChangeHandler(el.shId, 'increment') }} value="increment">+</button>
                 </div>
-            <span>{el.cost}</span>
-                <button onClick={()=>this.deleteProduct(el.shId)} className={style.deleteButton}>
+                <span>{el.price*el.selectedQuantity}</span>
+                <button onClick={() => this.deleteProduct(el.shId)} className={style.deleteButton}>
                   <svg
                     width="30"
                     height="30"
@@ -74,7 +78,8 @@ const mapStateToProps = (store) => ({ cartProducts: [...store.cart.items] });
 
 const mapDispatchToProps = (dispatch) => ({
   deleteProductFromCart: (id) => dispatch(notesActions.deleteProductAction(id)),
-  incrementQuantity: (id)=>dispatch(notesActions.incrementQuantity(id))
+  incrementQuantity: (id) => dispatch(notesActions.incrementQuantity(id)),
+  decrementQuantity: (id) => dispatch(notesActions.decrementQuantity(id))
 
 });
 

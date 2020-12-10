@@ -1,5 +1,7 @@
 import photos from './img'
-export default[
+
+
+const products =[
   {
     id: "1",
     name: "Шампунь1",
@@ -32,3 +34,4 @@ export default[
     price: 200
   }
 ]
+export default products

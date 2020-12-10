@@ -21,16 +21,29 @@ const cartReducer = (state = initial, { type, payload }) => {
       // console.log(payload);
       return {
         ...state,
-        items: [
-          ...state.items.map((item) =>{
-          console.log(item.selectedQuantity)
-        return    item.shId === payload.id ?item : item}
-          ),
-        ],
+        items:state.items.map(item=>{
+          if(item.shId===payload.id){
+            return{ ...item, selectedQuantity: item.selectedQuantity+1}
+          }
+          return item
+        })
+      };
+      case types.DECREMENT_QUANTITY:
+      // console.log(payload);
+      return {
+        ...state,
+        items:state.items.map(item=>{
+          if(item.shId===payload.id){
+            return{ ...item, selectedQuantity: item.selectedQuantity>1?item.selectedQuantity-1:item.selectedQuantity}
+          }
+          return item
+        })
       };
     default:
       return state;
   }
 };
+
+
 
 export default cartReducer;

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Select, { components } from "react-select";
 import style from "./Card.module.css";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
+import shortid from "shortid";
 
 const Card = ({
   product,
@@ -98,18 +99,19 @@ const Card = ({
       <form className={style.volumeCheckbox}>
         {product.availableVolume.map((el, index) => {
           return (
-            <>
+            <div key={shortid.generate()}>
+           
               <input
                 className={style.volumeInput}
-                key={product.id}
-                defaultChecked={index == 0 ? true : false}
+                // key={product.id}
+                defaultChecked={index === 0 ? true : false}
                 onChange={() => radioChange(product.id, el)}
                 name="volume"
                 id={`volume${el}${product.id}`}
                 type="radio"
               />
-              <label htmlFor={`volume${el}${product.id}`}>{el} мл</label>
-            </>
+               <label htmlFor={`volume${el}${product.id}`}>{el} мл</label>
+            </div>
           );
         })}
       </form>

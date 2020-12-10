@@ -87,6 +87,10 @@ body {
   opacity: 0;
 }
 
+.volumeCheckbox>div{
+  min-height: 20px;
+  margin-top: 5px;
+}
 .volumeCheckbox label {
   position: relative;
   text-align: left;
